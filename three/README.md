@@ -1,41 +1,39 @@
-# 🌐 Grade de Cubos em Three.js
+# 🌐 Cube Grid in Three.js
 
-Este projeto é um exemplo básico utilizando **Three.js** para renderizar uma grade 3D de cubos com bordas destacadas e controle de órbita. É ideal para fins educacionais ou como base para projetos gráficos mais avançados em WebGL.
+This project is a basic example using **Three.js** to render a 3D grid of cubes with highlighted edges and orbit controls. It's ideal for educational purposes or as a foundation for more advanced WebGL graphics projects.
 
-## 📸 Demonstração
+## 📸 Demo
 
-Renderiza uma grade de cubos (6x6) distribuídos uniformemente em um plano 2D com profundidade Z fixa. Os cubos possuem linhas de aresta visíveis e são iluminados com uma luz direcional. A câmera pode ser manipulada livremente com o mouse (panorâmica, zoom e rotação).
+Renders a grid of cubes (6x6) evenly distributed across a 2D plane with a fixed Z depth. The cubes have visible edge lines and are illuminated by a directional light. The camera can be freely manipulated with the mouse (panning, zooming, and rotating).
 
-## 🧰 Tecnologias Utilizadas
+## 🧰 Technologies Used
 
-- [Three.js](https://threejs.org/)
+- https://threejs.org/
 - WebGL (via `WebGLRenderer`)
-- OrbitControls (para navegação com o mouse)
-- [Vite](https://vitejs.dev/) (para desenvolvimento local rápido)
+- OrbitControls (for mouse navigation)
+- https://vitejs.dev/ (for fast local development)
 
-## 📦 Como Executar
+## 📦 How to Run
 
-1. Clone este repositório ou copie os arquivos para seu projeto.
-2. Instale as dependências e execute com Vite:
-
+1. Install dependencies and run the project with Vite:
 ```bash
 npx vite
 ```
-## 🧠 Estrutura do Código
+## 🧠 Code Structure
 
-- **Câmera:** Posição inicial em `(0, 0, 100)`, depois ajustada para `(0, 0, 10)`.
-- **Luz:** Uma `DirectionalLight` iluminando a cena.
-- **Objetos:** Cubos 3D organizados em uma grade 6x6, com espaçamento proporcional à área definida por `Xmax` e `Ymax`.
-- **Controles:** O usuário pode interagir com a câmera usando o mouse (Zoom, Pan e Orbit) graças ao `OrbitControls`.
+- Camera: Initially positioned at `(0, 0, 100)`, then adjusted to `(0, 0, 10)`.
+- Light: A `DirectionalLight` illuminating the scene.
+- Objects: 3D cubes arranged in a 6x6 grid, spaced proportionally to the area defined by `Xmax` and `Ymax`.
+- Controls: The user can interact with the camera using the mouse (Zoom, Pan, and Orbit) thanks to `OrbitControls`.
 
-## 📌 Notas
+## 📌 Notes
 
-- O código usa `MeshStandardMaterial` com cor personalizada.
-- Cada cubo é envolvido por uma malha de arestas (`EdgesGeometry`) para realce visual.
-- O uso de `renderer.setAnimationLoop(animate)` garante que a cena seja continuamente renderizada e interativa.
+- The code uses a custom-colored `MeshStandardMaterial`.
+- Each cube is outlined with `EdgesGeometry` for visual emphasis.
+- `renderer.setAnimationLoop(animate)` ensures the scene continuously renders and stays interactive.
 
-## 🧹 Melhorias Possíveis
+## 🧹 Possible Improvements
 
-- Tornar a quantidade de cubos configurável via interface.
-- Adicionar interatividade aos cubos (ex: hover, click).
-- Animar os cubos (rotação, escala etc).
+- Make the number of cubes configurable via a user interface.
+- Add interactivity to the cubes (e.g., hover, click).
+- Animate the cubes (rotation, scaling, etc.).
