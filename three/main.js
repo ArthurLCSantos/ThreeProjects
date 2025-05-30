@@ -1,21 +1,21 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
-const controls = new OrbitControls( camera, renderer.domElement );
 
 let width = window.innerWidth;
 let height = window.innerHeight;
 let aspect = width/height;
 
 
-scene = new THREE.Scene();
+const scene = new THREE.Scene();
 
-camera = new THREE.PerspectiveCamera( 45, aspect, 1, 1000 );
+const camera = new THREE.PerspectiveCamera( 45, aspect, 1, 1000 );
 camera.position.set(0, 0, 100);
 
-renderer = new THREE.WebGLRenderer();
+const renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight);
 document.body.appendChild( renderer.domElement );
+const controls = new OrbitControls( camera, renderer.domElement );
 
 const light = new THREE.DirectionalLight( 0xffffff, 3);
 light.position.set( 1, 1, 1).normalize();
@@ -48,7 +48,7 @@ camera.position.z = 10;
 
 function animate()
 {
-    renderer();
+    renderer.render(scene, camera);
     controls.update();
 
     
