@@ -2,7 +2,6 @@
 
 This repository contains a collection of interactive 3D projects built with [Three.js](https://threejs.org/). Each subfolder represents a self-contained visual or physics-based experience, showcasing different aspects of 3D web development.
 
-
 ---
 
 ## 📁 Included Projects
@@ -37,6 +36,16 @@ An interactive simulation of the Solar System with textured planets, orbital ani
 - Keyboard and mouse navigation  
 - Custom shaders for glowing effects  
 
+### 🧊 [`cube-grid/`](./cube-grid/README.md)
+
+A simple and interactive 3D cube grid demo using `Three.js`, perfect as a base for UI or simulation visualizations. Features:
+
+- 6x6 grid of cubes rendered in 3D space  
+- Edge-highlighted cubes with `EdgesGeometry`  
+- Directional lighting and camera orbit controls  
+- Responsive scene rendering using `renderer.setAnimationLoop`  
+- Built with `Three.js` and `Vite`
+
 ---
 
 ## 🚀 Getting Started
@@ -45,5 +54,7 @@ Install dependencies and run a local development server with Vite:
 
 ```bash
 npm install
-cd SolarSystem
+cd <project-folder>
 npx vite
+```
+Replace project-folder with the name of the project you want to run.
