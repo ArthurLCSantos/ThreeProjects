@@ -169,16 +169,16 @@ function createSaturn() {
     Mesh.rotation.z = -23.4 * Math.PI / 180;
     group.add(Mesh)
 
+    const ringTexture = loader.load("./img/planets/saturn/2k_saturn_ring_alpha.png");
+    ringTexture.center.set(0.5, 0.5);
+    ringTexture.rotation = Math.PI / 2; // ou qualquer ângulo que funcione visualmente
+
     const geo = new THREE.TorusGeometry( scaleTamanho(100000), 5, 2, 100 ); 
-    const mat = new THREE.MeshStandardMaterial( 
-        { 
-            map: loader.load("./img/planets/saturn/2k_saturn_ring_alpha.png"), 
-        }); 
-    const torus = new THREE.Mesh( geo, mat )
+    const mat = new THREE.MeshStandardMaterial({ map: ringTexture });
+    const torus = new THREE.Mesh(geo, mat);
     torus.rotation.z = -23.4 * Math.PI / 180;
     torus.rotation.x =  Math.PI / 2;
     group.add(torus)
-
     return group;
 }
 
