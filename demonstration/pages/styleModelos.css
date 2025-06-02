@@ -1,0 +1,158 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
+
+    background-color: black;
+}
+
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+
+    width: 100%;
+    height: auto;
+    min-height: 60px;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+
+    background-color: white;
+    border-bottom: solid 1px black;
+    box-sizing: border-box;
+    padding: 1vh 0;
+
+    & div {
+        flex: 1 1 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1vh;
+        border-right: solid black 1px;
+    }
+
+    & div:last-child {
+        border-right: none;
+    }
+
+    & a {
+        font-size: 2.5vh;
+        text-align: center;
+        font-family: 'Lucida Sans', sans-serif;
+    }
+}
+
+#ui {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    pointer-events: none;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    width: 100%;
+    height: 90vh;
+    padding: 10vh 2vh;
+    box-sizing: border-box;
+
+    color: white;
+    font-size: 2.5vh;
+    font-family: sans-serif;
+    text-align: center;
+    overflow-y: auto;
+
+    & h1 {
+        font-size: 8vh;
+        margin-bottom: 5vh;
+    }
+}
+
+.texts {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 100%;
+    pointer-events: none;
+    opacity: 0.8; /* permite ver o modelo atrás */
+
+    & p {
+        font-size: 2vh;
+        max-width: 40ch;
+        line-height: 1.6;
+        text-align: left;
+        background-color: rgba(0,0,0,0.5);
+        padding: 1vh;
+        border-radius: 8px;
+    }
+
+    & p:last-child {
+        text-align: right;
+    }
+}
+
+
+/* Tablet */
+@media (max-width: 768px) {
+
+
+    #ui h1 {
+        font-size: 5vh;
+    }
+
+    .texts {
+        flex-direction: column;
+        align-items: center;
+        pointer-events: none;
+
+        & p {
+            text-align: justify;
+            max-width: fit-content;
+        }
+
+        & p:last-child {
+            text-align: justify;
+        }
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    header {
+        display: flex;
+
+        & div {
+            display: none;
+        }
+
+        & div:first-child {
+            display:flex
+        }
+    }
+
+    .texts {
+        pointer-events: all;
+        & p {
+            text-align: justify;
+        }
+        
+            & p:last-child {
+            text-align: justify;
+        }
+    }
+}
