@@ -73,10 +73,11 @@ canvas {
 
 .box {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     flex-direction: column;
     background-color: white;
+    border-radius: 5%;
     padding: 10px;
     width: 200px;
     height: 200px;

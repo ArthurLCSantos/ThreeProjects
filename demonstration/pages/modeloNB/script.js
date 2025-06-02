@@ -96,8 +96,47 @@ function createNucleo(numParticles = 100, radius = 1) {
 }
 scene.add(createNucleo())
 
+let lastJumpTime = 0;
+const jumpInterval = 2;
 function animate(t = 0) {
     const time = t * 0.001
+
+    if (time-lastJumpTime >= jumpInterval) {
+        lastJumpTime = time;
+        const ind = randInt(0, eletrosfera.length-1)
+        if (eletrosfera[ind].length === 0) return;
+        const e = eletrosfera[ind].splice(0, 1)[0];
+
+        let sum = 0
+        if (ind == eletrosfera.length-1) {
+            sum = -1
+        } else if (ind == 0) {
+            sum = 1
+        } else {
+            sum = randInt(1,2)-1
+        }
+        const newInd = ind+sum
+        if (eletrosfera[newInd] && e){
+            e.distance = 1 + newInd + 1.55;
+            eletrosfera[newInd].unshift(e)
+            for (let i=0; i < eletrosfera[newInd].length; i++){
+                const b = eletrosfera[newInd][i]
+                const angleRad = (i / eletrosfera[newInd].length) * Math.PI * 2;
+                const offset = randInt(0,50) * (Math.PI/180)
+                b.angleOffset = angleRad+offset;
+                b.mesh.position.x = Math.cos(angleRad) * b.distance
+                b.mesh.position.y = Math.sin(angleRad) * b.distance;
+            }
+
+            for (let i=0; i < eletrosfera[ind].length; i++){
+                const b = eletrosfera[ind][i]
+                const angleRad = (i / eletrosfera[ind].length) * Math.PI * 2;
+                b.angleOffset = angleRad;
+                b.mesh.position.x = Math.cos(angleRad) * b.distance
+                b.mesh.position.y = Math.sin(angleRad) * b.distance;
+            }
+        }
+    }
 
     for (let n in eletrosfera) {
         eletrosfera[n].forEach(
